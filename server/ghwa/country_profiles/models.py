@@ -4,25 +4,25 @@ from django.db import models
 class Country(models.Model):
     c_1   = models.CharField(max_length=50)
     c_2   = models.CharField(max_length=1000)
-    #ph_1  = relation
+    ph_1  = models.ForeignKey("Population")
     ph_2  = models.FloatField()
     ph_3  = models.FloatField()
     ph_4  = models.IntegerField()
-    #ph_5  = relation
+    ph_5  = models.ForeignKey("PopulationLiving")
     ph_6  = models.FloatField()
     ph_7  = models.FloatField()
     ph_8  = models.FloatField()
-    #ph_9  = relation
+    ph_9  = models.ForeignKey("LifeExpectancy")
     ph_10 = models.IntegerField()
     ph_11 = models.IntegerField()
     ph_12 = models.IntegerField()
     ph_13 = models.IntegerField()
     ph_14 = models.IntegerField()
-    #ph_15 = relation
-    #ph_16 = relation
-    #ph_17 = relation
+    ph_15 = models.ForeignKey("BirthsAttended")
+    ph_16 = models.ForeignKey("AntenatalCareOne")
+    ph_17 = models.ForeignKey("AntenatalCareFour")
     ph_18 = models.FloatField()
-    #ph_19 = relation
+    ph_19 = models.ForeignKey("PostnatalCare")
     ph_20 = models.CharField(max_length=50)
     ph_21 = models.CharField(max_length=50)
     av_1  = models.IntegerField()
@@ -70,3 +70,34 @@ class Country(models.Model):
     ps_9  = models.CharField(max_length=10)
     ps_10 = models.CharField(max_length=10)
     ps_11 = models.CharField(max_length=10)
+
+class Population(models.Model):
+    all_population = models.FloatField()
+    under_15 = models.IntegerField()
+    over_60 = models.IntegerField()
+
+class PopulationLiving(models.Model):
+    population = models.FloatField()
+    year =  models.IntegerField()
+
+class LifeExpectancy(models.Model):
+    all_population = models.IntegerField()
+    female_population = models.IntegerField()
+    male_population =  models.IntegerField()
+
+class BirthsAttended(models.Model):
+    attended = models.FloatField()
+    year = models.IntegerField()
+
+class AntenatalCareOne(models.Model):
+    antenatal_care = models.FloatField()
+    year = models.IntegerField()
+
+class AntenatalCareFour(models.Model):
+    antenatal_care = models.FloatField()
+    year = models.IntegerField()
+
+class PostnatalCare(models.Model):
+    postnatal_care = models.FloatField()
+    year = models.IntegerField()
+
