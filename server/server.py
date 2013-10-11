@@ -3,6 +3,7 @@ import json
 import flask
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.cors import origin
 from parse import parse
 from flask import render_template
 from flask import Response
@@ -37,6 +38,7 @@ def main():
     return render_template('index.html')
 
 @app.route("/api", methods=["GET", "POST"])
+@origin('*')
 def api():
     country = flask.request.values["country"]
     values = [
