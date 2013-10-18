@@ -1,0 +1,390 @@
+<style>
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v9/zN7GBFwfMP4uA6AR0HCoLQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(http://themes.googleusercontent.com/static/fonts/robotocondensed/v8/Zd2E9abXLFGSr9G3YK2MsDR-eWpsHSw83BRsAQElGgc.ttf) format('truetype');
+}
+#ghwa-human-resources {
+    color: #888888;
+    font-size: 7px;
+}
+#ghwa-human-resources h2 {
+    color: #ffffff;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background-color: #00a3b2;
+    border-radius: 10px;
+    margin: 5px 0;
+    text-align: center;
+    clear: both;
+}
+#ghwa-human-resources h3 {
+    color: #ffffff;
+    font-size: 10px;
+    text-transform: none;
+    padding: 0 10px 5px 10px;
+    background-color: #00a3b2;
+    border-radius: 0 0 10px 10px;
+    margin: 0 0 2px 0;
+    width: 75px;
+    clear: both;
+}
+#ghwa-human-resources table {
+    font-size: 7px;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #888888;
+}
+#ghwa-human-resources tr {
+    border-top: 1px solid #888888;;
+}
+#ghwa-human-resources tr:first-child {
+    border-top: none;
+}
+#ghwa-human-resources td:first-child {
+    border-right: 1px solid #888888;
+}
+#ghwa-human-resources td:nth-child(2) {
+    padding: 2px 0 2px 10px;
+    width: 22px;
+}
+#ghwa-human-resources .heading-block {
+    border-top: 3px solid #00a3b2;
+    margin-top: 3px;
+    clear: both;
+}
+#ghwa-human-resources p.legend {
+    margin-top: 7px;
+    font-size: 6px;
+}
+#ghwa-human-resources p.legend span {
+    vertical-align: middle;
+    padding-left: 3px;
+}
+#ghwa-human-resources p.legend span:first-child {
+    vertical-align: middle;
+    padding-left: 0;
+}
+#ghwa-human-resources .description {
+    font-size: 9px;
+    font-weight: bold;
+    color: #00a3b2;
+    width: 95px;
+    float: left;
+}
+#ghwa-human-resources .description span {
+    font-size: 14px;
+}
+#ghwa-human-resources .nurses,
+#ghwa-human-resources .physicians,
+#ghwa-human-resources .pie {
+    width: 75px;
+    float: left;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -20px;
+}
+#ghwa-human-resources .nurses span,
+#ghwa-human-resources .physicians span {
+    font-size: 16px;
+}
+#ghwa-human-resources .nurses {
+    padding-right: 10px;
+}
+#ghwa-human-resources .physicians {
+    padding-left: 10px;
+    position: relative;
+}
+#ghwa-human-resources .border {
+    border-left: 1px dashed #888888;
+    height: 45px;
+    margin-top: 15px;
+    float: left;
+}
+#ghwa-human-resources .pie {
+    font-size: 8px;
+    font-weight: normal;
+    color: #00a3b2;
+    width: 90px;
+}
+#ghwa-human-resources .pie span:before {
+    content: ' ';
+    background-color: #00a3b2;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+}
+#ghwa-human-resources .physicians:before {
+    content: 'TO';
+    font-size: 8px;
+    position: absolute;
+    background: #00a3b2;
+    color: white;
+    padding: 2px;
+    left: -8px;
+    top: 15px;
+}
+#ghwa-human-resources .pie svg circle {
+    fill: none;
+    stroke: #00a3b2;
+    stroke-width: 1.5;
+}
+#ghwa-human-resources .pie svg path {
+    fill: #00a3b2;
+}
+#ghwa-human-resources .pie svg text {
+    fill: white;
+    text-anchor: middle;
+    font-size: 6;
+    font-family: "Roboto", sans-serif;
+}
+#ghwa-human-resources .nurses div.icons,
+#ghwa-human-resources .physicians div.icons {
+    padding-top: 5px;
+}
+#ghwa-human-resources .nurses div.icon,
+#ghwa-human-resources .physicians div.icon {
+    float: left;
+    box-sizing: border-box;
+    padding: 1px;
+    float: left;
+}
+#ghwa-human-resources .ghwa-accessibility .description {
+    position: relative;
+}
+#ghwa-human-resources .ghwa-accessibility .description:after {
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-left: 10px solid #00a3b2;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+#ghwa-human-resources .ghwa-accessibility-stat {
+    margin-top: -5px;
+    float: left;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+}
+#ghwa-human-resources .ghwa-availability .ghwa-block:before {
+    content: ' ';
+    border-radius: 2px;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    margin: 0 2px -1px 2px;
+}
+#ghwa-human-resources .ghwa-availability .ghwa-block-orange:before {
+    background-color: #e89964;
+}
+#ghwa-human-resources .ghwa-availability .ghwa-block-green:before {
+    background-color: #a4bb6b;
+}
+#ghwa-human-resources .ghwa-availability .ghwa-block-pink:before {
+    background-color: #c37194;
+}
+</style>
+<div id="ghwa-human-resources">
+  <h2>Human Resources for Health</h2>
+  <div class="heading-block" style="position: relative;">
+    <h3>Availability</h3>
+    <div class="ghwa-availability" style="width: 150px;">
+      <div>
+	<div style="float: left; width: 80px; color: #00a3b2; margin-right: 20px; font-weight: bold;">TO MEET THRESHOLDS BY 2030, REQUIRES:</div>
+	<div style="float: left; width: 50px; color: #00a3b2;"><br/>FEASIBILITY</div>
+      </div>
+      <div>
+	<div style="float: left; border-bottom: 1px dashed #888888; font-size: 8px; width: 110px; padding-right: 35px; padding-bottom: 2px; padding-top: 5px; color: #00a3b2;">
+	  <span data-key="AV_7" style="font-weight: bold;">-</span>% increase to meet 22.8/10,000 threshold
+	</div>
+	<div data-background-color="AV_8" style="float: left; width: 8px; height: 8px; border-radius: 2px; margin-left: -30px; margin-top: 10px; background-color: #e89964;"></div>
+      </div>
+      <div>
+	<div style="float: left; border-bottom: 1px dashed #888888; font-size: 8px; width: 110px; padding-right: 35px; padding-bottom: 2px; padding-top: 2px; color: #00a3b2;">
+	  <span data-key="AV_9" style="font-weight: bold;">-</span>% increase to meet 34.5/10,000 threshold
+	</div>
+	<div data-background-color="AV_10" style="float: left; width: 8px; height: 8px; border-radius: 2px; margin-left: -30px; margin-top: 8px; background-color: #e89964;"></div>
+      </div>
+      <div>
+	<div style="float: left; font-size: 8px; width: 110px; padding-right: 35px; padding-top: 2px; color: #00a3b2;">
+	  <span data-key="AV_11" style="font-weight: bold;">-</span>% increase to meet 59.4/10,000 threshold
+	</div>
+	<div data-background-color="AV_12" style="float: left; width: 8px; height: 8px; border-radius: 2px; margin-left: -30px; margin-top: 8px; background-color: #e89964;"></div>
+      </div>
+    </div>
+    <div style="position: absolute; top: 5px; left: 100px; font-size: 6px;">
+      Feasibility of achieving thresholds:
+	<div style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background-color: #a4bb6b; margin-left: 3px; margin-right: 2px; position: relative; top: 1px;"></div>Most likely
+	<div style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background-color: #e89964; margin-left: 3px; margin-right: 2px; position: relative; top: 1px;"></div>Somewhat likely
+	<div style="display: inline-block; width: 8px; height: 8px; border-radius: 2px; background-color: #c37194; margin-left: 3px; margin-right: 2px; position: relative; top: 1px;"></div>Least likely
+    </div>
+    <div style="position: absolute; top: 20px; left: 140px; width: 50px; color: #00a3b2; text-align: center; font-family: 'Roboto Condensed', sans-seriff;">
+      POPULATION (MILLIONS)
+      <div style="position: absolute; bottom: -5px; left: 20px; border-top: 3px solid #00a3b2; border-left: 5px solid transparent; border-right: 5px solid transparent;"></div>
+    </div>
+    <div style="position: absolute; top: 20px; left: 260px; width: 110px; color: #00a3b2; text-align: center; font-family: 'Roboto Condensed', sans-seriff;">
+      DENSITY OF SBAs PER 10,000 POPULTAION (ESTIMATED 2010)
+      <div style="position: absolute; bottom: -5px; left: 50px; border-top: 3px solid #00a3b2; border-left: 5px solid transparent; border-right: 5px solid transparent;"></div>
+    </div>
+  </div>
+  <div class="heading-block">
+    <h3>Accessibility</h3>
+    <div class="ghwa-accessibility container">
+      <div class="description" style="width: 100px; margin-right: 10px;">
+	GEOGRAPHICAL DISTRIBUTION OF PHYSICIANS<br/>
+	<span style="font-size: 7px; font-weight: normal;">(density per 10,000 population)</span>
+      </div>
+      <div class="ghwa-accessibility-stat">
+	<div>
+	  <span style="color: #00a3b2;">NATIONAL LOW</span><br/>
+	  <span data-key="AS_1" style="font-size: 16px;">-</span><br/>
+	  <span>Physicians</span>
+	</div>
+      </div>
+      <div class="ghwa-accessibility-stat">
+	<div>
+	  <span style="color: #00a3b2;">NATIONAL AVERAGE</span><br/>
+	  <span data-key="AS_2" style="font-size: 16px;">-</span><br/>
+	  <span>Physicians</span>
+	</div>
+      </div>
+      <div class="ghwa-accessibility-stat">
+	<div>
+	  <span style="color: #00a3b2;">NATIONAL HIGH</span><br/>
+	  <span data-key="AS_3" style="font-size: 16px;">-</span><br/>
+	  <span>Physicians</span>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="heading-block">
+    <h3>Acceptibility</h3>
+    <div class="container">
+      <div class="description">
+	The ratio of nurses to physicians is <br/><span data-key="AP_1">-</span><br/> the OECD average.
+      </div>
+      <div class="nurses">
+	<div>
+	  <span data-key="AP_3">-</span><br/>Nurses
+	</div>
+	<div class="icons"></div>
+      </div>
+      <div class="border"></div>
+      <div class="physicians">
+	<div>
+	  <span>1</span><br/>Physician
+	</div>
+	<div class="icons"></div>
+      </div>
+      <div class="pie">
+	<svg viewBox="-20 -20 40 40" style="width: 65px; height: 65px;">
+	  <circle cx="0" cy="0" r="17"/>
+	</svg>
+	<br/>
+	<span class="legend">Female physicians</span>
+      </div>
+    </div>
+  </div>
+  <div class="heading-block">
+    <h3>Quality</h3>
+    <div style="color: #00a3b2; margin-bottom: 5px;">
+      <em>Is there evidence that the country has mechanisms in place to:</em>
+    </div>
+    <div style="float: left; width: 33%; margin: 0; color: #00a3b2;">
+      <strong>ACCREDIT</strong> training institutions for:
+      <table style="width: 65%;">
+	<tbody>
+	  <tr>
+	    <td>Dentists</td>
+	    <td data-icon-key="QU_1"></td>
+	  </tr>
+	  <tr>
+	    <td>Midwives</td>
+	    <td data-icon-key="QU_2"></td>
+	  </tr>
+	  <tr>
+	    <td>Nurses</td>
+	    <td data-icon-key="QU_3"></td>
+	  </tr>
+	  <tr>
+	    <td>Pharmacists</td>
+	    <td data-icon-key="QU_4"></td>
+	  </tr>
+	  <tr>
+	    <td>Physicians</td>
+	    <td data-icon-key="QU_5"></td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+    <div style="float: left; width: 30%; margin-left: 1.5%; margin-right: 1.5%; color: #00a3b2;">
+      <strong>REGULATE</strong>:
+      <table style="width: 65%;">
+	<tbody>
+	  <tr>
+	    <td>Dentists</td>
+	    <td data-icon-key="QU_6"></td>
+	  </tr>
+	  <tr>
+	    <td>Midwives</td>
+	    <td data-icon-key="QU_7"></td>
+	  </tr>
+	  <tr>
+	    <td>Nurses</td>
+	    <td data-icon-key="QU_8"></td>
+	  </tr>
+	  <tr>
+	    <td>Pharmacists</td>
+	    <td data-icon-key="QU_9"></td>
+	  </tr>
+	  <tr>
+	    <td>Physicians</td>
+	    <td data-icon-key="QU_10"></td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+    <div style="float: left; width: 30%; margin-left: 3%; margin-right: 0; color: #00a3b2;">
+      <strong>LICENSE/RE-LICENSE</strong>:
+      <table style="width: 65%;">
+	<tbody>
+	  <tr>
+	    <td>Dentists</td>
+	    <td data-icon-key="QU_11"></td>
+	  </tr>
+	  <tr>
+	    <td>Midwives</td>
+	    <td data-icon-key="QU_12"></td>
+	  </tr>
+	  <tr>
+	    <td>Nurses</td>
+	    <td data-icon-key="QU_13"></td>
+	  </tr>
+	  <tr>
+	    <td>Pharmacists</td>
+	    <td data-icon-key="QU_14"></td>
+	  </tr>
+	  <tr>
+	    <td>Physicians</td>
+	    <td data-icon-key="QU_15"></td>
+	  </tr>
+	</tbody>
+      </table>
+    </div>
+  </div>
+</div>

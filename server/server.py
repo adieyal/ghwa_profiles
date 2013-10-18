@@ -41,12 +41,9 @@ def main():
 @origin('*')
 def api():
     country = flask.request.values["country"]
-    values = [
-        {
-            "code" : v.code,
-            "value" : v.value,
-        } for v in Value.query.filter_by(country=country)
-    ]
+    values = dict([
+        (v.code, v.value) for v in Value.query.filter_by(country=country) if v.code
+    ])
 
     return Response(
         response=json.dumps(values, indent=4), status=200, mimetype="application/json"

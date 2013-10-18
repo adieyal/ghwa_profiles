@@ -5,7 +5,7 @@ import sys
 import xlrd
 
 col_code = 3
-row_start = 3
+row_start = 1
 row_country = 1
 
 worksheet = None
@@ -16,8 +16,20 @@ def process_country(col):
     values = {}
     for row in range(row_start, worksheet.nrows):
         code = worksheet.cell_value(row, col_code)
+        if not code:
+            next
         value = worksheet.cell_value(row, col)
-        values[code] = value
+        if type(value) == unicode:
+            itemized = [i.strip() for i in value.split(';')]
+            if len(itemized) == 1:
+                values[code] = itemized[0]
+            else:
+                for i, v in enumerate(itemized):
+                    values['%s_%d' % (code, i)] = v
+        elif type(value) == float:
+            values[code] = '%.3g' % (value)
+        else:
+            values[code] = value
     return country_name, values
 
 def parse(filename):

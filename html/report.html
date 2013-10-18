@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>GHWA</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <!-- This script pulls all the dynamic tags from this file and prints a
+	 template JSON file that can be customized to populate this report.
+    <script type="text/javascript" src="js/generate.js"></script> -->
+
+    <script>
+      $(document).ready(function() {
+	  var param = window.location.href.split('?')[1];
+	  var elements = $('[data-src]')
+	  for (i=0; i<elements.length; i++) {
+	      var element = $(elements[i]);
+	      var src = element.attr('data-src');
+	      element.attr('data-src', src+'?'+param);
+	  };
+	  require.config({
+              baseUrl: "js",
+              deps: ["widgets/js/widgets"],
+              waitSeconds: 60
+	  });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="page page-a4-landscape">
+      <div id="ghwa-summary" data-widget="ghwa-summary" data-src="http://localhost:5000/api"></div>
+      <div>
+	<div class="column column-1">
+	  <div id="ghwa-population-and-health" data-widget="ghwa-population-and-health" data-src="http://localhost:5000/api"></div>
+	  <div id="ghwa-dalys" data-widget="ghwa-dalys" data-src="http://localhost:5000/api"></div>
+	</div>
+	<div class="column column-2">
+	  <div id="ghwa-human-resources" data-widget="ghwa-human-resources" data-src="http://localhost:5000/api"></div>
+	</div>
+	<div class="column column-3">
+	  <div id="ghwa-governance" data-widget="ghwa-governance" data-src="http://localhost:5000/api"></div>
+	</div> 
+      </div>     
+    </div>
+  </body>
+</html>

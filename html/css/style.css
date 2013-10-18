@@ -1,0 +1,97 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 8px;
+  color: #888888; }
+
+.page.page-a4-landscape {
+  width: 841.68px;
+  height: 595.44px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border: 1px solid black; }
+
+h1 {
+  font-size: 32px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 2px 0; }
+
+h2 {
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background-color: #888888;
+  border-radius: 10px;
+  margin: 2px 0;
+  text-align: center; }
+  h2.heading-blue {
+    background-color: #00a3b2; }
+  h2.heading-pink {
+    background-color: #c37194; }
+
+h3 {
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  background-color: #888888;
+  border-radius: 0 0 10px 10px;
+  margin: -4px 0 0 0; }
+  h3.heading-blue {
+    background-color: #00a3b2; }
+    h3.heading-blue:before {
+      background-color: #00a3b2; }
+  h3.heading-pink {
+    background-color: #c37194; }
+    h3.heading-pink:before {
+      background-color: #c37194; }
+
+.heading-block {
+  border-top: 5px solid #888888; }
+  .heading-block:after {
+    content: '.';
+    display: block;
+    clear: left;
+    visibility: hidden;
+    line-height: 0;
+    height: 0; }
+  .heading-block.heading-blue {
+    border-top-color: #00a3b2; }
+  .heading-block.heading-pink {
+    border-top-color: #c37194; }
+
+p {
+  margin: 2px 0;
+  font-size: 8px; }
+
+.column {
+  float: left;
+  box-sizing: border-box;
+  padding: 0 0 0 10px;
+  overflow: hidden; }
+  .column.column-1 {
+    width: 30%;
+    padding-left: 0; }
+  .column.column-2 {
+    width: 46%; }
+  .column.column-3 {
+    width: 24%; }
+
+.pull-right {
+  float: right; }
+
+.legend-box {
+  padding-top: 5px; }
+  .legend-box .legend {
+    width: 6.4px;
+    height: 6.4px;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 6.4px;
+    padding: 0; }
+    .legend-box .legend.legend-green {
+      background-color: #a4bb6b; }
+    .legend-box .legend.legend-orange {
+      background-color: #e89964; }
+    .legend-box .legend.legend-pink {
+      background-color: #c37194; }
