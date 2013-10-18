@@ -1,0 +1,80 @@
+<html>
+<head>
+  <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+  <script type='text/javascript'>
+   google.load('visualization', '1', {'packages': ['geochart']});
+   google.setOnLoadCallback(drawMap);
+
+    countries = {
+        "AF" : "Afghanistan",
+        "BD" : "Bangladesh",
+        "KH" : "Cambodia",
+        "CN" : "China",
+        "ET" : "Ethiopia",
+        "FJ" : "Fiji",
+        "GH" : "Ghana",
+        "IN" : "India",
+        "ID" : "Indonesia",
+        "JP" : "Japan",
+        "KE" : "Kenya",
+        "MZ" : "Mozambique",
+        "NP" : "Nepal",
+        "NI" : "Nicaragua",
+        "LK" : "Sri Lanka",
+        "SD" : "Sudan",
+        "TH" : "Thailand",
+        "YE" : "Yemen",
+        "AU" : "Australia",
+        "BR" : "Brazil",
+        "CU" : "Cuba",
+        "EG" : "Egypt",
+        "UK" : "England (United Kingom)",
+        "FR" : "France",
+        "HU" : "Hungary",
+        "KG" : "Kyrgyzstan",
+        "MX" : "Mexico",
+        "MA" : "Morocco",
+        "NO" : "Norway",
+        "OM" : "Oman",
+        "PE" : "Peru",
+        "PH" : "Philippines",
+        "SN" : "Senegal",
+        "ZA" : "South Africa",
+        "ES" : "Spain",
+        "US" : "United States of America"
+    }
+
+    keys = new Array()
+    keys.push(["Country", "Name"])
+    for (key in countries)
+        keys.push([key, countries[key]])
+
+    function drawMap() {
+        var data = google.visualization.arrayToDataTable(keys);
+
+        var options = {};
+        options['dataMode'] = 'regions';
+        options['showLegend'] = false;
+        options['colors'] = [0xE0FFD4, 0xA5EF63, 0x50AA00, 0x267114];
+
+        var container = document.getElementById('map_canvas');
+        var geomap = new google.visualization.GeoChart(container);
+        geomap.draw(data, options);
+
+        google.visualization.events.addListener(
+            geomap, 'regionClick', function(e) {
+                code = e["region"];
+                fullname = countries[code];
+                window.location = "http://ghwa.burgercom.co.za/report.html?country=" + fullname;
+            }
+        );
+    };
+
+  </script>
+</head>
+
+<body>
+  <div id='map_canvas'></div>
+</body>
+
+</html>
