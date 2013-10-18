@@ -65,7 +65,8 @@
             geomap, 'regionClick', function(e) {
                 code = e["region"];
                 fullname = countries[code];
-                window.location = "/report.html?country=" + fullname;
+                if (fullname != undefined)
+                    window.location = "/report.html?country=" + fullname;
             }
         );
     };
