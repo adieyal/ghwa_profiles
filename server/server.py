@@ -7,6 +7,7 @@ from flask.ext.cors import origin
 from parse import parse
 from flask import render_template
 from flask import Response
+from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -48,6 +49,8 @@ def api():
     return Response(
         response=json.dumps(values, indent=4), status=200, mimetype="application/json"
     )
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == "__main__":
     if len(sys.argv) == 3 and sys.argv[1] == "populate":
