@@ -26,6 +26,7 @@ define(['jquery', 'text!widgets/ghwa-dalys/template.html'], function($, template
 
 	    if (!me.data) { me.load(); }
 	    if (!me.data) { return; }
+	    return;
 	    
 	    var svg = node.find('svg');
 

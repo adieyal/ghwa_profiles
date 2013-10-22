@@ -183,6 +183,60 @@ define([
 		
 	    });
 	    
+	    var value = me.data['AS_2'];
+	    var scale = d3.scale.linear().domain([0, 140]).range([85.05, 0]);
+	    node.find('text[data-benchmark]').each(function() {
+		$(this).text(value+'/10,000');
+	    });
+	    node.find('circle[data-benchmark]').each(function() {
+		$(this).attr('cy', scale(value));
+	    });
+	    node.find('line[data-benchmark]').each(function() {
+		$(this).attr('y1', scale(value));
+	    });
+	    
+	    (function (population) {
+		var g = d3.select(node.find('g[data-population]')[0])
+		var scale = d3.scale.linear()
+		    .domain([0, d3.max(population)*1.2])
+		    .range([85.05, 0])
+		    .nice();
+		g.selectAll('line')
+		    .data(scale.ticks(5))
+		    .enter()
+		    .append('line')
+		    .attr('x1', '15')
+		    .attr('x2', '155')
+		    .attr('y1', scale)
+		    .attr('y2', scale)
+		    .style('stroke', '#bdbcbc')
+		    .style('stroke-width', '0.5')
+		    .style('stroke-dasharray', '3,3');
+		g.selectAll('text[data-function="tick"]')
+		    .data(scale.ticks(5))
+		    .enter()
+		    .append('text')
+		    .attr('data-function', 'tick')
+		    .text(function(d, i) { return d/1000000; })
+		    .attr('x', 14)
+		    .attr('y', scale)
+		    .attr('dy', '0.35em')
+		    .style('fill', '#00A3B2')
+		    .style('text-size', '6')
+		    .style('text-anchor', 'end');
+		g.selectAll('rect')
+		    .data(population)
+		    .enter()
+		    .append('rect')
+		    .attr('x', function(d, i) { return 15+(140/6/2)+(140/6)*i-7; })
+		    .attr('y', scale)
+		    .attr('width', 14)
+		    .attr('height', function(d, i) { return scale(0)-scale(d) })
+		    .style('fill', '#c7c5c5');
+	    })([parseFloat(me.data['AV_1']), parseFloat(me.data['AV_2']),
+		parseFloat(me.data['AV_3']), parseFloat(me.data['AV_4']),
+		parseFloat(me.data['AV_5']), parseFloat(me.data['AV_5A'])]);
+	    
 	    $(me.node).attr('data-rendered', true);
 	    $(document).trigger('widget-rendered');
 	},
