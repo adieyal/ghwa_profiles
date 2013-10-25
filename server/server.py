@@ -34,13 +34,15 @@ class DALY(db.Model):
     rank = db.Column(db.Integer)
     cause = db.Column(db.String(30))
     perc = db.Column(db.Float)
+    color = db.Column(db.String(10))
 
-    def __init__(self, country, code, rank, cause, perc):
+    def __init__(self, country, code, rank, cause, perc, color):
         self.country = country
         self.code = code
         self.rank = rank
         self.cause = cause
         self.perc = perc
+        self.color = color
 
     def __repr__(self):
         return '<Code %s>' % (self.code)
@@ -55,7 +57,7 @@ def populate_database(fn_profile, fn_daly):
 
     parser = IHMEParser(fn_daly)
     for data in parser.parse_data():
-        d = DALY(data["country"], data["code"], data["rank"], data["cause"], data["perc"])
+        d = DALY(data["country"], data["code"], data["rank"], data["cause"], data["perc"], data["color"])
         db.session.add(d)
     db.session.commit()
 
@@ -81,7 +83,8 @@ def api_daly():
     country = flask.request.values["country"]
     values = [
         {
-            "code" : v.code, "rank" : v.rank, "text" : v.cause, "value" : v.perc
+            "code" : v.code, "rank" : v.rank, "text" : v.cause, 
+            "value" : v.perc, "color" : v.color
         } for v in DALY.query.filter_by(country=country) if v.code and v.rank <= 10
     ]
 
