@@ -45,9 +45,9 @@ class IHMEParser(object):
     col_cause = 4
     col_rank = 5
     col_perc = 6
-    color_comm = "#ababab"
-    color_non = "#121212"
-    color_injury = "#343434"
+    color_comm = "#7075B7"
+    color_non = "#5A899E"
+    color_injury = "#C26A91"
 
     cause_colors = {
         "Alzheimer's disease and other dementias" : color_non,
