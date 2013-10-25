@@ -79,9 +79,11 @@ def api_profiles():
 @origin('*')
 def api_daly():
     country = flask.request.values["country"]
-    values = dict([
-        (v.code, (v.rank, v.cause, v.perc)) for v in DALY.query.filter_by(country=country) if v.code and v.rank <= 10
-    ])
+    values = [
+        {
+            "code" : v.code, "rank" : v.rank, "text" : v.cause, "value" : v.perc
+        } for v in DALY.query.filter_by(country=country) if v.code and v.rank <= 10
+    ]
 
     return Response(
         response=json.dumps(values, indent=4), status=200, mimetype="application/json"
