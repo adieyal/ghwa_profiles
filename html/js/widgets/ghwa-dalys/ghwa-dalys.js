@@ -28,6 +28,10 @@ define(['jquery', 'text!widgets/ghwa-dalys/template.html'], function($, template
 	    if (!me.data) { return; }
 	    
 	    var svg = node.find('svg');
+	    
+	    var pathFor = function(value) {
+		return 
+	    }
 
 	    for (i=0; i<10; i++) {
 		var data = me.data[i];
@@ -35,32 +39,46 @@ define(['jquery', 'text!widgets/ghwa-dalys/template.html'], function($, template
 		var rect = bar.find('rect');
 		var text = bar.find('text');
 		if (data['value']>=0) {
+		    var value = Math.min(data['value'], 200)
 		    bar.find('rect')
-			.attr('width', data['value'])
+			.attr('width', value)
 			.css('fill', data['color']);
 		    bar.find('text')
 			.text(data['text'])
-			.attr('x', data['value']+2);
+			.attr('x', value+2);
 		    if (text[0].getBBox()['width']+4 < rect[0].getBBox()['width']) {
 			bar.find('text')
 			    .css('fill', '#ffffff')
 			    .css('text-anchor', 'end')
 			    .attr('x', Math.min(data['value']-2, 198));
 		    }
+		    if (data['value'] > 200) {
+			var box = bar.find('rect')[0].getBBox();
+			var path = bar.find('path');
+			path.attr('d', 'M199,'+box['y']+' l1,0 l8,8 l-8,8 l-1,0 z');
+			path.css('fill', data['color']);
+		    }
 		} else {
+		    var value = Math.max(data['value'], -200)
 		    bar.find('rect')
-			.attr('width', -data['value'])
-			.attr('x', data['value'])
+			.attr('width', -value)
+			.attr('x', value)
 			.css('fill', data['color']);
 		    bar.find('text')
 			.text(data['text'])
-			.attr('x', data['value']-2)
+			.attr('x', value-2)
 			.css('text-anchor', 'end');
 		    if (text[0].getBBox()['width']+4 < rect[0].getBBox()['width']) {
 			bar.find('text')
 			    .css('fill', '#ffffff')
 			    .css('text-anchor', 'start')
-			    .attr('x', Math.max(data['value']+2, -198));
+			    .attr('x', Math.max(value+2, -198));
+		    }
+		    if (data['value'] < -200) {
+			var box = bar.find('rect')[0].getBBox();
+			var path = bar.find('path');
+			path.attr('d', 'M-199,'+box['y']+' l-1,0 l-8,8 l8,8 l1,0 z');
+			path.css('fill', data['color']);
 		    }
 		}
 	    }
