@@ -8,6 +8,7 @@
 
     <script type="text/javascript" src="js/require.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/overlay.js"></script>
 
     <!-- This script pulls all the dynamic tags from this file and prints a
 	 template JSON file that can be customized to populate this report.
@@ -31,6 +32,9 @@
     </script>
   </head>
   <body>
+    <div>
+      <input type="checkbox" onchange="checkboxChange(this)" data-base="http://ghwa.burgercom.co.za" />Show widget tag overlays.
+    </div>
     <div class="page page-a4-landscape">
       <div id="ghwa-summary" data-widget="ghwa-summary" data-src="/api/profiles"></div>
       <div>
