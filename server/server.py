@@ -83,9 +83,9 @@ def api_daly():
     country = flask.request.values["country"]
     values = [
         {
-            "code" : v.code, "rank" : v.rank, "text" : v.cause, 
+            "rank" : v.rank, "text" : v.cause, 
             "value" : v.perc, "color" : v.color
-        } for v in DALY.query.filter_by(country=country) if v.code and v.rank <= 10
+        } for v in DALY.query.filter_by(country=country).order_by('rank') if v.code and v.rank <= 10
     ]
 
     return Response(

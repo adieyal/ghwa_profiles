@@ -26,7 +26,6 @@ define(['jquery', 'text!widgets/ghwa-dalys/template.html'], function($, template
 
 	    if (!me.data) { me.load(); }
 	    if (!me.data) { return; }
-	    return;
 	    
 	    var svg = node.find('svg');
 
@@ -38,9 +37,9 @@ define(['jquery', 'text!widgets/ghwa-dalys/template.html'], function($, template
 		if (data['value']>=0) {
 		    bar.find('rect')
 			.attr('width', data['value'])
-			.css('fill', colors[data['color']]);
+			.css('fill', data['color']);
 		    bar.find('text')
-			.text(data['label'])
+			.text(data['text'])
 			.attr('x', data['value']+2);
 		    if (text[0].getBBox()['width']+4 < rect[0].getBBox()['width']) {
 			bar.find('text')
@@ -52,9 +51,9 @@ define(['jquery', 'text!widgets/ghwa-dalys/template.html'], function($, template
 		    bar.find('rect')
 			.attr('width', -data['value'])
 			.attr('x', data['value'])
-			.css('fill', colors[data['color']]);
+			.css('fill', data['color']);
 		    bar.find('text')
-			.text(data['label'])
+			.text(data['text'])
 			.attr('x', data['value']-2)
 			.css('text-anchor', 'end');
 		    if (text[0].getBBox()['width']+4 < rect[0].getBBox()['width']) {
