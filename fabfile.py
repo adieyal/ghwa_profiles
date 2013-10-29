@@ -11,4 +11,4 @@ def deploy():
         api.run("%s install -r %s/deploy/requirements.txt --quiet" % (pip, code_dir))
         api.run("source %s/bin/activate; make setup" % env_dir)
 
-        #api.sudo("supervisorctl restart mpr")
+        api.sudo("supervisorctl restart ghwa")
