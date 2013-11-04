@@ -61,10 +61,6 @@ def populate_database(fn_profile, fn_daly):
         db.session.add(d)
     db.session.commit()
 
-@app.route("/")
-def main():
-    return render_template('index.html')
-
 @app.route("/api/profiles", methods=["GET", "POST"])
 @origin('*')
 def api_profiles():
