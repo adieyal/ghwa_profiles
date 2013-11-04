@@ -18,15 +18,21 @@ function addOverlay(base) {
 		    'background': 'black',
 		    'opacity': '0.8',
 		    'color': 'white',
-		    'text-align': 'center'
-		})
-		.text('<div data-widget="'+node.attr('data-widget')+'" data-src="'+base+node.attr('data-src')+'"></div>')
+		    'text-align': 'center',
+		    'font-size': '8px'
+		}).append(  
+		    $('<pre/>')
+			.css({ 'white-space': 'pre-wrap' })
+			.text('<div data-widget="'+node.attr('data-widget')+'" data-src="'+base+node.attr('data-src')+'"></div>')
+		)
 	)
     });
+    $('.page').addClass('widgetOverlayVisible');
 }
 
 function removeOverlay() {
     $('.widgetOverlay').remove();
+    $('.page').removeClass('widgetOverlayVisible');
 }
 
 function checkboxChange(chk) {
