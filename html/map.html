@@ -69,7 +69,7 @@
         google.visualization.events.addListener(
             geomap, 'regionClick', function(e) {
                 code = e["region"];
-                fullname = countries[code];
+                fullname = countries[code][0];
                 if (fullname != undefined)
                     window.location = "/report.html?country=" + fullname;
             }
