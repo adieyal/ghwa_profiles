@@ -6,56 +6,61 @@
    google.setOnLoadCallback(drawMap);
 
     countries = {
-        "AF" : "Afghanistan",
-        "BD" : "Bangladesh",
-        "KH" : "Cambodia",
-        "CN" : "China",
-        "ET" : "Ethiopia",
-        "FJ" : "Fiji",
-        "GH" : "Ghana",
-        "IN" : "India",
-        "ID" : "Indonesia",
-        "JP" : "Japan",
-        "KE" : "Kenya",
-        "MZ" : "Mozambique",
-        "NP" : "Nepal",
-        "NI" : "Nicaragua",
-        "LK" : "Sri Lanka",
-        "SD" : "Sudan",
-        "TH" : "Thailand",
-        "YE" : "Yemen",
-        "AU" : "Australia",
-        "BR" : "Brazil",
-        "CU" : "Cuba",
-        "EG" : "Egypt",
-        "UK" : "England (United Kingom)",
-        "FR" : "France",
-        "HU" : "Hungary",
-        "KG" : "Kyrgyzstan",
-        "MX" : "Mexico",
-        "MA" : "Morocco",
-        "NO" : "Norway",
-        "OM" : "Oman",
-        "PE" : "Peru",
-        "PH" : "Philippines",
-        "SN" : "Senegal",
-        "ZA" : "South Africa",
-        "ES" : "Spain",
-        "US" : "United States of America"
+        "AF" : ["Afghanistan", 2.67],
+        "BD" : ["Bangladesh", 5.74],
+        "KH" : ["Cambodia", 10.13],
+        "CN" : ["China", 29.68],
+        "ET" : ["Ethiopia", 2.78],
+        "FJ" : ["Fiji", 26.7],
+        "GH" : ["Ghana", 11.31],
+        "IN" : ["India", 16.5],
+        "ID" : ["Indonesia", 15.87],
+        "JP" : ["Japan", 62.83],
+        "KE" : ["Kenya", 9.73],
+        "MZ" : ["Mozambique", 3.7],
+        "NP" : ["Nepal", 2.1],
+        "NI" : ["Nicaragua", 3.7],
+        "LK" : ["Sri Lanka", 24.22],
+        "SD" : ["Sudan", 11.2],
+        "TH" : ["Thailand", 18.22],
+        "YE" : ["Yemen", 8.74],
+        "AU" : ["Australia", 134.4],
+        "BR" : ["Brazil", 81.8],
+        "CU" : ["Cuba", 157.7],
+        "EG" : ["Egypt", 63.5],
+        "UK" : ["England (United Kingdom)", 122.37],
+        "FR" : ["France", 126.81],
+        "HU" : ["Hungary", 98.24],
+        "KG" : ["Kyrgyzstan", 24.69],
+        "MX" : ["Mexico", 59.4],
+        "MA" : ["Morocco", 15.1],
+        "NO" : ["Norway", 154.07],
+        "OM" : ["Oman", 61.6],
+        "PE" : ["Peru", 21.91],
+        "PH" : ["Philippines", 71.53],
+        "SN" : ["Senegal", 4.79],
+        "ZA" : ["South Africa", 7.58],
+        "ES" : ["Spain", 92.37],
+        "US" : ["United States of America", 122.35],
+        "NG" : ["Nigeria", 20],
+        "PK" : ["Pakistan", 13.7],
+        "SL" : ["Sierra Leone", 1.88],
     }
 
     keys = new Array()
-    keys.push(["Country", "Name"])
-    for (key in countries)
-        keys.push([key, countries[key]])
+    keys.push(["Country", "Name", "Density/10000 Pop"])
+    for (key in countries) {
+        arr = countries[key];
+        keys.push([key, arr[0], arr[1]]);
+    }
 
     function drawMap() {
         var data = google.visualization.arrayToDataTable(keys);
 
         var options = {};
         options['dataMode'] = 'regions';
-        options['showLegend'] = false;
-        options['colors'] = [0xE0FFD4, 0xA5EF63, 0x50AA00, 0x267114];
+        options['showLegend'] = true;
+        options['colors'] = ["#E0848A", "#E00613"]; 
 
         var container = document.getElementById('map_canvas');
         var geomap = new google.visualization.GeoChart(container);
@@ -64,7 +69,7 @@
         google.visualization.events.addListener(
             geomap, 'regionClick', function(e) {
                 code = e["region"];
-                fullname = countries[code];
+                fullname = countries[code][0];
                 if (fullname != undefined)
                     window.location = "/report.html?country=" + fullname;
             }
