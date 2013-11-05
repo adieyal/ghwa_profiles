@@ -7,6 +7,10 @@ require(['jquery'], function($) {
 	    widget_rendered++;
 	    if (widget_rendered == widget_count) {
 		widget_render_done = true;
+		$('table').css('display', 'none');
+		setTimeout(function() {
+		    $('table').css('display', 'table');
+		}, 100);
 	    }
 	});
     })();
